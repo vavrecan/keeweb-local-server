@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "canOpen": true,
+    "canOpenDemo": false,
+    "canOpenSettings": true,
+    "canCreate": false,
+    "canImportXml": false,
+    "canRemoveLatest": true,
+
+    "dropbox": false,
+    "webdav": false,
+    "gdrive": false,
+    "onedrive": false,
+    "localServerStorage": true
+  },
+  "plugins": [{
+    "url": "plugins/local-server",
+    "skipSignatureValidation": true
+  }]
+}
