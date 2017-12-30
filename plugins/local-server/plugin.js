@@ -227,10 +227,10 @@ Storage.localServerStorage = new LocalServerStorage();
 const openViewGetDisplayedPath = OpenView.prototype.getDisplayedPath;
 OpenView.prototype.getDisplayedPath = function(fileInfo) {
     const storage = fileInfo.get('storage');
-    if (storage === 'file' || storage === 'webdav' || storage === 'server') {
+    if (storage === 'localServerStorage') {
         return fileInfo.get('path');
     }
-    return null;
+    return openViewGetDisplayedPath.apply(this);
 };
 
 const openViewGetOpenFile = OpenView.prototype.openFile;
