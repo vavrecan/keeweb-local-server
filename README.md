@@ -8,7 +8,7 @@ It should be easy to rewrite server-side storage script to other programming lan
 
 <a href="https://ibb.co/iYXLWb"><img src="https://thumb.ibb.co/iYXLWb/Screenshot_from_2017_12_30_23_35_26.png" alt="Screenshot_from_2017_12_30_23_35_26" border="0"></a> <a href="https://ibb.co/hPHvEw"><img src="https://thumb.ibb.co/hPHvEw/Screenshot_from_2017_12_30_21_07_37.png" alt="Screenshot_from_2017_12_30_21_07_37" border="0"></a> <a href="https://ibb.co/jTWcSG"><img src="https://thumb.ibb.co/jTWcSG/Screenshot_from_2017_12_30_21_07_53.png" alt="Screenshot_from_2017_12_30_21_07_53" border="0"></a>
 
-### Installation
+## Installation
 Download keeweb, place it to the same directory and override in index.html
 
 `<meta name="kw-config" content="(no-config)">`
