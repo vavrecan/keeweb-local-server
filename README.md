@@ -18,3 +18,9 @@ to
 `<meta name="kw-config" content="config.json">`
 
 Update read / write password in `server.php` and configure path to keepass databases.
+
+## Authors
+- [Marek Vavrecan](mailto:vavrecan@gmail.com)
+
+## License
+- [GNU General Public License, version 2](http://www.gnu.org/licenses/gpl-2.0.html)
