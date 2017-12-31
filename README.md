@@ -21,7 +21,7 @@ Update read / write password in `server.php` and configure path to keepass datab
 
 ## Authors
 - [Marek Vavrecan](mailto:vavrecan@gmail.com)
-- [Donate](https://www.paypal.me/vavrecan)
+- [Donate by PayPal](https://www.paypal.me/vavrecan)
 
 ## License
 - [GNU General Public License, version 2](http://www.gnu.org/licenses/gpl-2.0.html)
