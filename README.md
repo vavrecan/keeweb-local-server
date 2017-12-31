@@ -19,7 +19,7 @@ to
 
 Update read / write password in `server.php` and configure path to keepass databases.
 
-## Authors
+## Author
 - [Marek Vavrecan](mailto:vavrecan@gmail.com)
 - [Donate by PayPal](https://www.paypal.me/vavrecan)
 
