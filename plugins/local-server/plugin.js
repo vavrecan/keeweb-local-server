@@ -8,7 +8,7 @@ const Storage = require('storage/index');
 const BaseLocale = require('locales/base');
 const StorageBase = require('storage/storage-base');
 const ModalView = require('views/modal-view');
-const Alerts = require('comp/alerts');
+const Alerts = require('comp/ui/alerts');
 const Locale = require('util/locale');
 const OpenView = require('views/open-view');
 
