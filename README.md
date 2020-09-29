@@ -1,15 +1,29 @@
 # keeweb-local-server
 
-This plugin adds support for simple storage on same self hosted server.
+This plugin adds support for simple storage on self hosted server.
 Reading and writing is done through simple php script `server.php`. 
 
-User is then asked for password to access server files (which can also be changed in php script). 
+Users are prompt to enter access password for reading or writing to server storage (password can be set in php script). 
 It should be easy to rewrite server-side storage script to other programming languages as well.
 
-<a href="https://ibb.co/iYXLWb"><img src="https://thumb.ibb.co/iYXLWb/Screenshot_from_2017_12_30_23_35_26.png" alt="Screenshot_from_2017_12_30_23_35_26" border="0"></a> <a href="https://ibb.co/hPHvEw"><img src="https://thumb.ibb.co/hPHvEw/Screenshot_from_2017_12_30_21_07_37.png" alt="Screenshot_from_2017_12_30_21_07_37" border="0"></a> <a href="https://ibb.co/jTWcSG"><img src="https://thumb.ibb.co/jTWcSG/Screenshot_from_2017_12_30_21_07_53.png" alt="Screenshot_from_2017_12_30_21_07_53" border="0"></a>
+![Server File Access](docs/prompt.png)
+Server file access prompt dialog
+
+![Global Settings](docs/settings.png)
+Global settings to configure server file access
 
 ## Installation
-Download keeweb, place it to the same directory and override in index.html
+Following installation script requires wget and unzip. Simply run
+
+`wget -O - https://raw.githubusercontent.com/vavrecan/keeweb-local-server/master/install.sh | bash`
+
+then copy files to website root directory or test with local webserver 
+
+`php -S localhost:8080`
+
+## Manual Installation
+Download keeweb html version from [https://github.com/keeweb/keeweb/releases](https://github.com/keeweb/keeweb/releases), 
+copy files from this repository and make changes to the `index.html` file
 
 `<meta name="kw-config" content="(no-config)">`
 
