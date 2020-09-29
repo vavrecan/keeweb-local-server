@@ -43,12 +43,6 @@ class LocalServerStorage extends StorageBase {
         this.appSettings[key] = value;
     }
 
-    serverRequiresPassword() {
-        this.appSettings["serverPassword"] = null;
-        this.appSettings["serverRequirePassword"] = true;
-        this.appSettings.save();
-    }
-
     applyConfig(config, callback) {
         this.appSettings["serverPassword"] = config.serverPassword;
         this.appSettings["serverRequirePassword"] = false;
@@ -65,6 +59,10 @@ class LocalServerStorage extends StorageBase {
             },
             password: this.appSettings.serverPassword ? this.appSettings.serverPassword : ''
         }, callback ? (err, xhr, stat) => {
+            if (err && path) {
+                this._showAlertAccess();
+            }
+
             callback(err, stat);
         } : null);
     }
@@ -108,22 +106,32 @@ class LocalServerStorage extends StorageBase {
             password: this.appSettings.serverPassword ? this.appSettings.serverPassword : ''
         }, callback ? (err, xhr, stat) => {
             if (err) {
-                // its considered good practice to show some warning to user
-                this.alert = Alerts.alert({
-                    icon: 'ban',
-                    header: 'Unable to save changes',
-                    body: 'Check server password in settings',
-                    buttons: [
-                        Alerts.buttons.ok
-                    ],
-                    success: (result) => {
-                        this.alert = null;
-                    }
-                });
+                this._showAlertAccess();
             }
 
             callback(err, stat);
         } : null);
+    }
+
+    _serverRequiresPassword() {
+        this.appSettings["serverPassword"] = null;
+        this.appSettings["serverRequirePassword"] = true;
+        this.appSettings.save();
+    }
+
+    _showAlertAccess() {
+        // its considered good practice to show some warning to user
+        this.alert = Alerts.alert({
+            icon: 'ban',
+            header: 'Unable to save changes',
+            body: 'Check server password in settings',
+            buttons: [
+                Alerts.buttons.ok
+            ],
+            success: (result) => {
+                this.alert = null;
+            }
+        });
     }
 
     _request(config, callback) {
@@ -152,7 +160,7 @@ class LocalServerStorage extends StorageBase {
 
                 // try authorizing
                 if (err && err.unauthorized) {
-                    this.serverRequiresPassword();
+                    this._serverRequiresPassword();
                     if (callback) { callback('Not Authorized'); }
                 } else {
                     if (callback) { callback(err, xhr.response); }
@@ -178,15 +186,16 @@ class LocalServerStorage extends StorageBase {
             if (callback) { callback('aborted'); }
         });
 
-        let params = '?password=' + config.password;
+        let params = '';
         if (config.params) {
-            params += '&' + Object.keys(config.params).map((key) => {
+            params = '?' + Object.keys(config.params).map((key) => {
                 return key + '=' + encodeURIComponent(config.params[key]);
             }).join('&');
         }
+
         xhr.open(config.method, this.basePath + params);
         xhr.responseType = config.responseType || 'json';
-        //  = 'arraybuffer';
+        xhr.setRequestHeader("Authorization", config.password);
 
         if (config.headers) {
             _.forEach(config.headers, (value, header) => {

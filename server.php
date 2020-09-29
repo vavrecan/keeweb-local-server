@@ -16,7 +16,7 @@ function require_authorization() {
     if (empty($valid_password))
         return;
 
-    $password = $_GET["password"];
+    $password = !empty($_SERVER["HTTP_AUTHORIZATION"]) ? $_SERVER["HTTP_AUTHORIZATION"] : "";
 
     if (empty($password) || $password !== $valid_password) {
         header('HTTP/1.0 401 Unauthorized');
