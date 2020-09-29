@@ -6,11 +6,9 @@ Reading and writing is done through simple php script `server.php`.
 Users are prompt to enter access password for reading or writing to server storage (password can be set in php script). 
 It should be easy to rewrite server-side storage script to other programming languages as well.
 
-![Server File Access](docs/prompt.png)
-Server file access prompt dialog
+![Server file access prompt dialog](docs/prompt.png)
 
-![Global Settings](docs/settings.png)
-Global settings to configure server file access
+![Global settings to configure server file access](docs/settings.png)
 
 ## Installation
 Following installation script requires wget and unzip. Simply run
