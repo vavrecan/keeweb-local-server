@@ -1,15 +1,16 @@
 #!/bin/bash
 
+VERSION=1.16.7
 mkdir keeweb-local-server
 cd keeweb-local-server || exit
 
-wget https://github.com/keeweb/keeweb/releases/download/v1.15.7/KeeWeb-1.15.7.html.zip
+wget https://github.com/keeweb/keeweb/releases/download/v${VERSION}/KeeWeb-${VERSION}.html.zip
 if [ $? -ne 0 ]; then
   echo "Failed to download keeweb"
   exit
 fi
 
-unzip KeeWeb-1.15.7.html.zip
+unzip KeeWeb-${VERSION}.html.zip
 
 wget https://github.com/vavrecan/keeweb-local-server/archive/master.zip
 if [ $? -ne 0 ]; then
@@ -27,5 +28,5 @@ rm -r keeweb-local-server-master
 
 sed -i 's/content="(no-config)"/content="config.json"/' index.html
 
-unlink KeeWeb-1.15.7.html.zip
+unlink KeeWeb-${VERSION}.html.zip
 unlink master.zip
