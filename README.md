@@ -37,11 +37,29 @@ Update read / write password in `server.php` and configure path to keepass datab
 Changing path to server.php script file:
 Plugin will always try to access server.php in website root directory. If you wish to change default script path, add localServerStorageScriptPath to config.json settings property, e.g.:
 
-`{
-"settings": {
-    "localServerStorageScriptPath": "/subdirectory/server.php",
-...
-`
+```
+{
+  "settings": {
+    "canOpen": true,
+    "canOpenDemo": false,
+    "canOpenSettings": true,
+    "canCreate": false,
+    "canImportXml": false,
+    "canRemoveLatest": true,
+
+    "dropbox": false,
+    "webdav": false,
+    "gdrive": false,
+    "onedrive": false,
+    "localServerStorage": true,
+    "localServerStorageScriptPath": "/subdirectory/server.php"
+  },
+  "plugins": [{
+    "url": "plugins/local-server",
+    "skipSignatureValidation": true
+  }]
+}
+```
 
 ## Author
 - [Marek Vavrecan](mailto:vavrecan@gmail.com)
