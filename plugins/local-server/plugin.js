@@ -15,7 +15,7 @@ class LocalServerStorage extends StorageBase {
     icon = 'lock';
     enabled = true;
     uipos = 100;
-    basePath = '/server.php';
+    scriptPath = '/server.php';
 
     needShowOpenConfig() {
         return !!this.appSettings.serverRequirePassword;
@@ -135,13 +135,19 @@ class LocalServerStorage extends StorageBase {
     }
 
     _request(config, callback) {
-        this.logger.debug(config.op, this.basePath);
+        let scriptPath = this.scriptPath;
+
+        if (this.appSettings.localServerStorageScriptPath) {
+            scriptPath = this.appSettings.localServerStorageScriptPath;
+        }
+
+        this.logger.debug(config.op, scriptPath);
 
         const ts = this.logger.ts();
         const xhr = new XMLHttpRequest();
         xhr.addEventListener('load', () => {
             if ([200, 201, 204].indexOf(xhr.status) < 0) {
-                this.logger.debug(config.op + ' error', this.basePath, xhr.status, this.logger.ts(ts));
+                this.logger.debug(config.op + ' error', scriptPath, xhr.status, this.logger.ts(ts));
                 let err;
                 switch (xhr.status) {
                     case 404:
@@ -169,20 +175,20 @@ class LocalServerStorage extends StorageBase {
             }
             const rev = xhr.getResponseHeader('Last-Modified');
             if (!rev && !config.nostat) {
-                this.logger.debug(config.op + ' error', this.basePath, 'no headers', this.logger.ts(ts));
+                this.logger.debug(config.op + ' error', scriptPath, 'no headers', this.logger.ts(ts));
                 if (callback) { callback('No Last-Modified header'); }
                 return;
             }
             const completedOpName = config.op + (config.op.charAt(config.op.length - 1) === 'e' ? 'd' : 'ed');
-            this.logger.debug(completedOpName, this.basePath, rev, this.logger.ts(ts));
+            this.logger.debug(completedOpName, scriptPath, rev, this.logger.ts(ts));
             if (callback) { callback(null, xhr.response, rev ? { rev: rev } : null); }
         });
         xhr.addEventListener('error', () => {
-            this.logger.debug(config.op + ' error', this.basePath, this.logger.ts(ts));
+            this.logger.debug(config.op + ' error', scriptPath, this.logger.ts(ts));
             if (callback) { callback('network error'); }
         });
         xhr.addEventListener('abort', () => {
-            this.logger.debug(config.op + ' error', this.basePath, 'aborted', this.logger.ts(ts));
+            this.logger.debug(config.op + ' error', scriptPath, 'aborted', this.logger.ts(ts));
             if (callback) { callback('aborted'); }
         });
 
@@ -193,7 +199,7 @@ class LocalServerStorage extends StorageBase {
             }).join('&');
         }
 
-        xhr.open(config.method, this.basePath + params);
+        xhr.open(config.method, scriptPath + params);
         xhr.responseType = config.responseType || 'json';
         xhr.setRequestHeader("Authorization", config.password);
 

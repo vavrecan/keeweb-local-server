@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.3",
   "manifestVersion": "0.1.0",
   "name": "local-server",
   "description": "Local Server Storage",
@@ -9,7 +9,7 @@
     "url": "http://github.com/vavrecan"
   },
   "resources": {
-    "js": "DjtWZoKA0QHWtIuFpxcMytLYHi2gAKhpA3sItbp6GcmH9qQHMWSVJqsSFSEQ0615NI3R4449l8rBGV75laAnO0nQXnCQQ2LKYozOy2TsFORGaVn0L9fE6x4wsp0sQ39Jr+qQNC+6QLOjE8l6kg9ZxzJKXO3ldU9jsaHeXcYGMfBv1liIxQYGvwAomiJsdgS8uzN/ATksGbDuSY6w4+uxuNAcsUd25o/BOdDQacCSu47mWasuXbOzJL1H1HwQJIXV0s4/P/hCcfefgOX0A0tjsU5CtwA0BplTYvhh6gDKnEUunEizhoVGmTCnopNzsjibVKSznuEmVRhs7EOTfHS3Pg=="
+    "js": "HFt811g7MjXijWyv7+iE+kcbElweC5nmsDWr6KqNTT2bXR4RH/pGntzxcKQzImNdE7Ds4xVkBLqMl2ennEQURjvKkAyGk6q/EOAjPm7h01LbFA15iZOCoi8ylGAtBN4o8NfLmwqgggLjPTfNC+HMaWmOOEKp7UxrS/bBYgl97vjhiAFlW3u0zmgWzK3fSXWdhJu45Bd4Xz9ho4KPIYG6QRBtA4Sk90qYcv3iyLhmO4EHefdEl4Fg8/3n+DuuyqmiizHN8j9Fg5muVpB8wxCRKPuOuvDhaEkGDYxJp3SzLVL7xDChutXz9KJaYThK+T1j5nw9+evWdGXJ5IVMEh/Fpg=="
   },
   "url": "http://github.com/vavrecan/keeweb-local-server",
   "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA03lItcDSvPRHid9AapzbTScvDIRrvtSqTrSBglpGNO3N0/eIYrWTBx9QpKyL1dW4cpcA0nAiicyDLshXKC78Gnun8mM54nfEsOdFZA5xl+LicOVa0Hi2j3D17sFgOIG24vAi5ZH7wij9TGNWN5nIl/pPdpOFOKKdk/7ODgyqn5Z0U5yhw+XyUxyUnN+/+RIuBicJFlfj93frzQ9CYrdF7kbY5t52MouwABtFeviaK7jMTckU5l8FGddkDZL/40t3nHUVUp2PkXJVYWZpiDMTzhD/TuBJhNGhYzVdVOfD8oMNEb8Gje8bLi3NBrvbhJd9dLxrvm5NrVYxjebW8F0DIQIDAQAB",
