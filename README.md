@@ -19,6 +19,9 @@ then copy files to website root directory or test with local webserver
 
 `php -S localhost:8080`
 
+## Server Configuration
+Standard http server with PHP support should be enough and in the most of the cases you do not have to change anything. Server access password is transfered over Authorization header - make sure your configuration or proxy server allows this. If you are using php-cgi and apache, the Authorisation Header could be stripped - check [https://www.codepunker.com/blog/php-a-primer-on-the-basic-authorization-header](this article) for more details.
+
 ## Manual Installation
 Download keeweb html version from [https://github.com/keeweb/keeweb/releases](https://github.com/keeweb/keeweb/releases), 
 copy files from this repository and make changes to the `index.html` file
