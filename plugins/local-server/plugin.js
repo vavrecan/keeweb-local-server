@@ -229,22 +229,23 @@ Storage.localServerStorage = new LocalServerStorage();
 const openViewGetOpenFile = OpenView.prototype.openFile;
 OpenView.prototype.openFile = function() {
     if (this.model.settings['localServerStorage']) {
-        this.openKeyFileFromLocalServer();
+        this.openFileFromLocalServer();
         return;
     }
     openViewGetOpenFile.apply(this);
 };
 
-const openViewOpenKeyFile = OpenView.prototype.openKeyFile;
-OpenView.prototype.openKeyFile = function(e) {
-    if (this.model.settings['localServerStorage']) {
-        this.openKeyFileFromLocalServer();
-        return;
-    }
-    openViewOpenKeyFile.apply(this);
-};
+// open key file from local pc
+// const openViewOpenKeyFile = OpenView.prototype.openKeyFile;
+// OpenView.prototype.openKeyFile = function(e) {
+//    if (this.model.settings['localServerStorage']) {
+//        this.openFileFromLocalServer();
+//        return;
+//    }
+//    openViewOpenKeyFile.apply(this);
+// };
 
-OpenView.prototype.openKeyFileFromLocalServer = function() {
+OpenView.prototype.openFileFromLocalServer = function() {
     const icon = this.$el.find('.open__icon-storage[data-storage=localServerStorage]');
     icon.trigger('click');
 };
@@ -254,6 +255,8 @@ module.exports.uninstall = function() {
     delete Storage.localServerStorage;
     // restore hooks
     OpenView.prototype.openFile = openViewGetOpenFile;
-    OpenView.prototype.openKeyFile = openViewOpenKeyFile;
+
+    // open key file from storage
+    // OpenView.prototype.openKeyFile = openViewOpenKeyFile;
 };
 
